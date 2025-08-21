@@ -45,3 +45,8 @@ a {
 a:hover {
   text-decoration: underline;
 }
+.cal-cal { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+.cal-cal th, .cal-cal td { border: 1px solid #ccc; padding: 4px; vertical-align: top; height: 100px; }
+.cal-head th { background: #f0f4ff; }
+.jour { width: 14.28%; }
+.nav { margin: 2px; padding: 3px; border-radius: 4px; font-size: 13px; font-weight: bold; }

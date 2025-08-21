@@ -50,3 +50,7 @@ a:hover {
 .cal-head th { background: #f0f4ff; }
 .jour { width: 14.28%; }
 .nav { margin: 2px; padding: 3px; border-radius: 4px; font-size: 13px; font-weight: bold; }
+.menu-mois { text-align:center; margin: 12px 0 20px; line-height: 2.2; }
+.mois-link { display:inline-block; padding:6px 10px; border:1px solid #cbd5e1; border-radius:9999px; text-decoration:none; margin:4px 6px; }
+.mois-link:hover { background:#eef2ff; text-decoration:underline; }
+

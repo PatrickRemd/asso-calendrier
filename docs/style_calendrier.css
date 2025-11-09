@@ -64,3 +64,37 @@ a:hover {
 .menu-mois { text-align:center; margin: 12px 0 20px; line-height: 2.2; }
 .mois-link { display:inline-block; padding:6px 10px; border:1px solid #cbd5e1; border-radius:9999px; text-decoration:none; margin:4px 6px; }
 .mois-link:hover { background:#eef2ff; text-decoration:underline; }
+
+/* Popover sur les pastilles du calendrier */
+.cal-cal td { position: relative; }
+.nav.has-popover { position: relative; }
+
+.popover {
+  position: absolute;
+  z-index: 20;
+  top: 28px; left: 0;
+  min-width: 260px; max-width: 360px;
+  background: #fff; border: 1px solid #cbd5e1; border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  padding: 10px 12px;
+  display: none;
+}
+
+.nav.has-popover:hover .popover,
+.nav.has-popover:focus-within .popover { display: block; }
+
+.popover h4 { margin: 0 0 6px; font-size: 14px; }
+.popover dl { margin:0; }
+.popover dt { font-weight: 600; display:inline; }
+.popover dd { display:inline; margin: 0 0 6px 4px; }
+.popover .muted { color:#64748b; font-size:12px; margin-top:6px; display:block; }
+.popover .desc {
+  margin-top: 6px;
+  max-height: 160px;
+  overflow: auto;
+  line-height: 1.35;
+  color: #334155;
+  font-size: 12px;
+  white-space: normal;
+}
+

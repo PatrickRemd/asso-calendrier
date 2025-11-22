@@ -97,4 +97,73 @@ a:hover {
   font-size: 12px;
   white-space: normal;
 }
+/* Section mensuelle */
+.mois-section {
+  margin: 18px 0 28px;
+}
+
+.mois-section h3 {
+  margin: 8px 0 12px;
+}
+
+/* Grille de vignettes par mois */
+.mois-grid {
+  display: flex;
+  flex-wrap: wrap;          /* retour à la ligne automatique */
+  gap: 12px;                /* espace entre les cartes */
+  align-items: stretch;
+}
+
+/* Carte navigation */
+.nav-card {
+  width: 230px;
+  min-height: 120px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-card .boat {
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.nav-card .dates {
+  font-size: 12px;
+  color: #475569;
+}
+
+.nav-card .desc {
+  font-size: 12px;
+  color: #334155;
+  margin-top: 4px;
+  max-height: 80px;
+  overflow: auto;
+}
+
+.nav-card .cta {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+.nav-card .cta a {
+  text-decoration: none;
+}
+
+/* Petit code couleur par bateau sur la bordure haute */
+.nav-card.bateau-joshua {
+  border-top: 4px solid #7aa6c7;
+}
+.nav-card.bateau-damien {
+  border-top: 4px solid #b89ce6;
+}
+.nav-card.bateau-autre {
+  border-top: 4px solid #94a3b8;
+}
 

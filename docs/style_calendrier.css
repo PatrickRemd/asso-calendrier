@@ -112,6 +112,9 @@ a:hover {
   flex-wrap: wrap;          /* retour à la ligne automatique */
   gap: 12px;                /* espace entre les cartes */
   align-items: stretch;
+  background-color: #fcc00c;
+  border:3px solid black;
+  padding: 5px;
 }
 
 /* Carte navigation */
@@ -132,10 +135,13 @@ a:hover {
 .nav-card .boat {
   font-weight: 700;
   margin-bottom: 2px;
+  border-bottom: 1px solid black;
+  display: grid;
+  place-items: center;
 }
 
 .nav-card .dates {
-  font-size: 12px;
+  font-size: 14px;
   color: #475569;
 }
 
@@ -145,6 +151,9 @@ a:hover {
   margin-top: 4px;
   max-height: 80px;
   overflow: auto;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding : 5px;
 }
 
 .nav-card .cta {
@@ -153,7 +162,10 @@ a:hover {
 }
 
 .nav-card .cta a {
-  text-decoration: none;
+  background-color:#F0F0F0;
+  padding : 5px;
+  display: grid;
+  place-items: center;
 }
 
 /* Petit code couleur par bateau sur la bordure haute */
@@ -167,3 +179,15 @@ a:hover {
   border-top: 4px solid #94a3b8;
 }
 
+.liste-nav {
+  background-color: #fcc00c;
+  border:3px solid black;
+  padding: 5px;
+  list-style-position: inside;
+}
+.liste-nav li {
+  line-height: 1.5;
+}
+.liste-nav .date {
+  font-weight: bold;
+}

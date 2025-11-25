@@ -135,9 +135,9 @@ a:hover {
 .nav-card .boat {
   font-weight: 700;
   margin-bottom: 2px;
-  border-bottom: 1px solid black;
   display: grid;
   place-items: center;
+  background-color: #94a3b8;
 }
 
 .nav-card .dates {
@@ -155,7 +155,12 @@ a:hover {
   border-top: 1px solid black;
   padding : 5px;
 }
-
+.nav-card.bateau-joshua .boat{
+  background-color:#f32929;
+}
+.nav-card.bateau-damien .boat{
+  background-color:#9edef1;
+}
 .nav-card .cta {
   margin-top: 6px;
   font-size: 12px;
@@ -168,7 +173,7 @@ a:hover {
   place-items: center;
 }
 
-/* Petit code couleur par bateau sur la bordure haute */
+/* Petit code couleur par bateau sur la bordure haute 
 .nav-card.bateau-joshua {
   border-top: 4px solid #7aa6c7;
 }
@@ -178,7 +183,7 @@ a:hover {
 .nav-card.bateau-autre {
   border-top: 4px solid #94a3b8;
 }
-
+*/
 .liste-nav {
   background-color: #fcc00c;
   border:3px solid black;

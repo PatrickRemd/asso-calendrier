@@ -95,26 +95,26 @@ h3 {
 }
 
 /* Couleurs par bateau : fond + couleur de texte homogène
-   (le texte hérite aussi pour les liens) */
+   (le texte hérite aussi pour les liens)
 
 .nav.bateau-joshua,
 .nav.bateau-joshua a {
-  background-color: #dc2626; /* rouge assez vif */
-  color: #ffffff;            /* texte blanc -> bon contraste */
+  background-color: #dc2626; 
+  color: #ffffff;            
 }
 
 .nav.bateau-damien,
 .nav.bateau-damien a {
-  background-color: #c7dff7; /* bleu très clair */
-  color: #111827;            /* texte très foncé */
+  background-color: #c7dff7; 
+  color: #111827;           
 }
 
 .nav.bateau-autre,
 .nav.bateau-autre a {
-  background-color: #64748b; /* gris bleuté assez foncé */
-  color: #f9fafb;            /* presque blanc */
+  background-color: #64748b; 
+  color: #f9fafb;           
 }
-
+ */
 /* Links dans les nav : pas de soulignement, couleur héritée */
 .nav a {
   text-decoration: none;
@@ -335,13 +335,16 @@ h3 {
 }
 
 /* Bateaux → couleurs de fond (une seule fois ici) */
-.nav.bateau-joshua  { background-color: #ff3131; }  /* rouge vif */
-.nav.bateau-damien  { background-color: #c7dff7; }  /* bleu clair */
+.nav.bateau-joshua  { background-color: #e52321; }  /* rouge vif */
+.nav.bateau-damien  { background-color: #5671b6; }  /* bleu clair */
 .nav.bateau-autre   { background-color: #94a3b8; }  /* gris bleuté */
 
 /* Contraste texte : 
    - Rouge (Joshua) → texte blanc
    - Les autres gardent le texte sombre par défaut       */
 .nav.bateau-joshua > .nav-label { 
+  color: #ffffff;
+}
+.nav.bateau-damien > .nav-label { 
   color: #ffffff;
 }

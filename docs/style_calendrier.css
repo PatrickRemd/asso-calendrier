@@ -247,3 +247,46 @@ h3 {
 .nav-card.bateau-autre {
   border-top: 4px solid #64748b;
 }
+
+/* ————————————————————————————————
+   RÉPARATION COULEURS + LISIBILITÉ TEXTE
+   ———————————————————————————————— */
+
+/* 1) Texte blanc seulement dans la pastille, pas dans le popover */
+.nav.bateau-joshua,
+.nav.bateau-damien,
+.nav.bateau-autre {
+  color: #ffffff;         /* texte de la pastille */
+}
+
+/* 2) Remettre le texte NORMAL dans le popover */
+.popover,
+.popover * {
+  color: #334155 !important;  /* lisible bleu-gris */
+}
+
+/* 3) Fond du popover */
+.popover {
+  background: #ffffff !important;
+}
+
+/* 4) Bordure/ombre popover (plus propre) */
+.popover {
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+/* 5) Pastilles par bateau (consolidation une seule fois) */
+.nav.bateau-joshua      { background-color: #ff3131; }
+.nav.bateau-damien      { background-color: #c7dff7; }
+.nav.bateau-autre       { background-color: #94a3b8; }
+
+/* 6) Rétablir les couleurs de fond du calendrier */
+.cal-cal th {
+  background-color: #fef9c3;   /* jaune pâle */
+}
+
+.cal-cal td {
+  background-color: #fff;      /* blanc */
+}

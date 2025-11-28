@@ -1,131 +1,125 @@
-/* ===========================
-   Variables de couleurs
-   =========================== */
-:root {
-  --couleur-fond-page: rgb(86,113,182);
-  --couleur-bateau-joshua: #ff3131;
-  --couleur-bateau-damien: #c7dff7;
-  --couleur-bateau-autre:  #94a3b8;
-  --texte-sur-fond-fonce:  #ffffff;
-  --texte-sur-fond-clair:  #000000;
-}
-
-/* ===========================
-   Base de page
-   =========================== */
+/* ============================
+   1. Styles généraux
+   ============================ */
 
 body {
-  font-family: "Antonio", sans-serif;
-  background-color: var(--couleur-fond-page);
-  margin: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 16px;
+  background: #f8fafc;
+  color: #0f172a;
 }
 
-h1, h2 {
+h2 {
+  margin: 0 0 16px;
+}
+
+h3 {
+  margin: 24px 0 12px;
+}
+
+
+/* ============================
+   2. Index des mois (menu)
+   ============================ */
+
+.menu-mois {
   text-align: center;
-  color: white;
+  margin: 12px 0 20px;
+  line-height: 2.2;
 }
 
-/* ===========================
-   TABLEAU CALENDRIER
-   =========================== */
+.mois-link {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  text-decoration: none;
+  margin: 4px 6px;
+  font-size: 14px;
+  color: #0f172a;
+}
+
+.mois-link:hover {
+  background: #eef2ff;
+  text-decoration: underline;
+}
+
+
+/* ============================
+   3. Calendrier en tableau
+   ============================ */
 
 .cal-cal {
   border-collapse: collapse;
   width: 100%;
   margin-bottom: 30px;
-  border: 3px solid black;
-  background-color: #fcc00c;
 }
 
 .cal-cal th,
 .cal-cal td {
-  border: 1px solid rgb(86,113,182);
-  padding: 5px;
+  border: 1px solid #cbd5e1;
+  padding: 4px;
   vertical-align: top;
-}
-
-.cal-cal th {
-  height: 30px;
-  font-size: 16px;
-  text-align: left;
-}
-
-.cal-cal td {
-  height: 120px;
+  height: 100px;
+  font-size: 13px;
 }
 
 .cal-head th {
-  background: #f0f4ff;
+  background: #e2e8f0;
+  text-align: center;
 }
 
 .jour {
   width: 14.28%;
 }
 
-/* Pastille de navigation dans le calendrier */
+
+/* ============================
+   4. Pastilles de navigation (calendrier)
+   ============================ */
+
 .nav {
-  margin: 2px;
-  padding: 4px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
+  margin: 2px 0;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  display: block;
+  text-decoration: none;
 }
 
-/* Couleurs des pastilles calendrier par bateau */
-.nav.bateau-joshua {
-  background-color: var(--couleur-bateau-joshua);
-  color: var(--texte-sur-fond-fonce);
-}
-.nav.bateau-damien {
-  background-color: var(--couleur-bateau-damien);
-  color: var(--texte-sur-fond-clair);
-}
-.nav.bateau-autre {
-  background-color: var(--couleur-bateau-autre);
-  color: var(--texte-sur-fond-clair);
+/* Couleurs par bateau : fond + couleur de texte homogène
+   (le texte hérite aussi pour les liens) */
+
+.nav.bateau-joshua,
+.nav.bateau-joshua a {
+  background-color: #dc2626; /* rouge assez vif */
+  color: #ffffff;            /* texte blanc -> bon contraste */
 }
 
-/* Lien à l'intérieur des pastilles */
+.nav.bateau-damien,
+.nav.bateau-damien a {
+  background-color: #c7dff7; /* bleu très clair */
+  color: #111827;            /* texte très foncé */
+}
+
+.nav.bateau-autre,
+.nav.bateau-autre a {
+  background-color: #64748b; /* gris bleuté assez foncé */
+  color: #f9fafb;            /* presque blanc */
+}
+
+/* Links dans les nav : pas de soulignement, couleur héritée */
 .nav a {
   text-decoration: none;
-  color: inherit;           /* même couleur que le texte de .nav */
 }
 
-.nav a:hover {
-  text-decoration: underline;
-}
 
-/* ===========================
-   INDEX DES MOIS
-   =========================== */
+/* ============================
+   5. Popover (calendrier)
+   ============================ */
 
-.menu-mois {
-  text-align:center;
-  margin: 12px 0 20px;
-  line-height: 2.2;
-}
-
-.mois-link {
-  display:inline-block;
-  padding:6px 10px;
-  border:1px solid #cbd5e1;
-  border-radius:9999px;
-  text-decoration:none;
-  margin:4px 6px;
-  background-color: #ffffff;
-  color: #0f172a;
-}
-
-.mois-link:hover {
-  background:#eef2ff;
-  text-decoration:underline;
-}
-
-/* ===========================
-   POPOVER SUR LE CALENDRIER
-   =========================== */
-
-/* Important : td doit être en position relative */
 .cal-cal td {
   position: relative;
 }
@@ -141,10 +135,10 @@ h1, h2 {
   left: 0;
   min-width: 260px;
   max-width: 360px;
-  background: #fff;
+  background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.2);
   padding: 10px 12px;
   display: none;
 }
@@ -160,24 +154,24 @@ h1, h2 {
 }
 
 .popover dl {
-  margin:0;
+  margin: 0;
 }
 
 .popover dt {
   font-weight: 600;
-  display:inline;
+  display: inline;
 }
 
 .popover dd {
-  display:inline;
+  display: inline;
   margin: 0 0 6px 4px;
 }
 
 .popover .muted {
-  color:#64748b;
-  font-size:12px;
-  margin-top:6px;
-  display:block;
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
 }
 
 .popover .desc {
@@ -190,81 +184,46 @@ h1, h2 {
   white-space: normal;
 }
 
-/* ===========================
-   VUE VIGNETTES PAR MOIS
-   =========================== */
+
+/* ============================
+   6. Vignettes par mois
+   ============================ */
 
 .mois-section {
   margin: 18px 0 28px;
 }
 
-.mois-section h3 {
-  margin: 8px 0 12px;
-}
-
-/* Grille de vignettes par mois */
 .mois-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  align-items: stretch;
-  background-color: #fcc00c;
-  border:3px solid black;
-  padding: 5px;
 }
 
-/* Carte navigation */
 .nav-card {
   width: 230px;
   min-height: 120px;
-  border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 10px;
   background: #ffffff;
-  box-shadow: 0 2px 6px rgba(0,0,0,.04);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+  font-size: 13px;
 }
 
-/* En-tête de carte: même code couleur que les pastilles */
 .nav-card .boat {
   font-weight: 700;
-  margin-bottom: 2px;
-  display: grid;
-  place-items: center;
-  padding: 4px;
-}
-
-/* Couleurs par bateau (réutilise les variables) */
-.nav-card.bateau-joshua .boat {
-  background-color: var(--couleur-bateau-joshua);
-  color: var(--texte-sur-fond-fonce);
-}
-.nav-card.bateau-damien .boat {
-  background-color: var(--couleur-bateau-damien);
-  color: var(--texte-sur-fond-clair);
-}
-.nav-card.bateau-autre .boat {
-  background-color: var(--couleur-bateau-autre);
-  color: var(--texte-sur-fond-clair);
 }
 
 .nav-card .dates {
-  font-size: 14px;
+  font-size: 12px;
   color: #475569;
+  margin-top: 2px;
 }
 
 .nav-card .desc {
+  margin-top: 6px;
   font-size: 12px;
   color: #334155;
-  margin-top: 4px;
-  max-height: 80px;
-  overflow: auto;
-  border-bottom: 1px solid black;
-  border-top: 1px solid black;
-  padding: 5px;
 }
 
 .nav-card .cta {
@@ -273,29 +232,18 @@ h1, h2 {
 }
 
 .nav-card .cta a {
-  display: grid;
-  place-items: center;
-  background-color:#F0F0F0;
-  padding: 5px;
-  text-decoration:none;
-  color:#111827;
+  text-decoration: none;
 }
 
-/* ===========================
-   LISTE COMPACTE
-   =========================== */
-
-.liste-nav {
-  background-color: #fcc00c;
-  border:3px solid black;
-  padding: 5px;
-  list-style-position: inside;
+/* Couleurs de bordure des vignettes par bateau (réutilisation cohérente) */
+.nav-card.bateau-joshua {
+  border-top: 4px solid #dc2626;
 }
 
-.liste-nav li {
-  line-height: 1.5;
+.nav-card.bateau-damien {
+  border-top: 4px solid #1d4ed8;
 }
 
-.liste-nav .date {
-  font-weight: bold;
+.nav-card.bateau-autre {
+  border-top: 4px solid #64748b;
 }

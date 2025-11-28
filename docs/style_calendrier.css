@@ -1,27 +1,56 @@
-/* ============================
-   1. Styles généraux
-   ============================ */
+/************************************************************
+ * 1) Styles généraux
+ ************************************************************/
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  margin: 0;
-  padding: 16px;
-  background: #f8fafc;
-  color: #0f172a;
+  margin: 16px;
+  color: #111827;
 }
 
 h2 {
   margin: 0 0 16px;
 }
 
-h3 {
-  margin: 24px 0 12px;
+/************************************************************
+ * 2) Calendrier mensuel (table .cal-cal)
+ ************************************************************/
+
+.cal-cal {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 30px;
 }
 
+.cal-cal th,
+.cal-cal td {
+  border: 1px solid #e5e7eb;
+  padding: 4px;
+  vertical-align: top;
+  height: 100px;
+  font-size: 13px;
+}
 
-/* ============================
-   2. Index des mois (menu)
-   ============================ */
+/* En-tête de jours + bandeaux de mois (couleur commune) */
+.cal-head th,
+.mois-section > h3 {
+  background-color: #facc15; /* jaune doré */
+  color: #111827;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cal-head th {
+  border-bottom-width: 2px;
+}
+
+.jour {
+  width: 14.28%;
+}
+
+/************************************************************
+ * 3) Index de mois (utilisé par calendrier et listings)
+ ************************************************************/
 
 .menu-mois {
   text-align: center;
@@ -36,8 +65,9 @@ h3 {
   border-radius: 9999px;
   text-decoration: none;
   margin: 4px 6px;
-  font-size: 14px;
-  color: #0f172a;
+  font-size: 13px;
+  color: #1e293b;
+  background-color: #f9fafb;
 }
 
 .mois-link:hover {
@@ -45,95 +75,33 @@ h3 {
   text-decoration: underline;
 }
 
+/************************************************************
+ * 4) Popover sur les pastilles du calendrier
+ ************************************************************/
 
-/* ============================
-   3. Calendrier en tableau
-   ============================ */
+/* La cellule sert de référence à la position absolue */
+.cal-cal td { position: relative; }
 
-.cal-cal {
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-
-.cal-cal th {
-  background-color: #fef3c7;  /* jaune clair en-tête */
-}
-
-.cal-cal td {
-  border: 1px solid #cbd5e1;
-  background-color: #fffbeb;  /* jaune très pâle pour les jours */
-  padding: 4px;
-  vertical-align: top;
-  height: 100px;
-  font-size: 13px;
-}
-
-.cal-head th {
-  background: #e2e8f0;
-  text-align: center;
-}
-
-.jour {
-  width: 14.28%;
-}
-
-
-/* ============================
-   4. Pastilles de navigation (calendrier)
-   ============================ */
-
+/* Conteneur de la pastille (calendrier) */
 .nav {
-  margin: 2px 0;
-  padding: 4px 6px;
-  border-radius: 6px;
+  margin: 2px;
+  padding: 3px 6px;
+  border-radius: 4px;
   font-size: 13px;
   font-weight: 600;
-  display: block;
-  text-decoration: none;
+  display: inline-block;
 }
 
-/* Couleurs par bateau : fond + couleur de texte homogène
-   (le texte hérite aussi pour les liens)
-
-.nav.bateau-joshua,
-.nav.bateau-joshua a {
-  background-color: #dc2626; 
-  color: #ffffff;            
-}
-
-.nav.bateau-damien,
-.nav.bateau-damien a {
-  background-color: #c7dff7; 
-  color: #111827;           
-}
-
-.nav.bateau-autre,
-.nav.bateau-autre a {
-  background-color: #64748b; 
-  color: #f9fafb;           
-}
- */
-/* Links dans les nav : pas de soulignement, couleur héritée */
 .nav a {
   text-decoration: none;
 }
 
-
-/* ============================
-   5. Popover (calendrier)
-   ============================ */
-
-.cal-cal td {
-  position: relative;
-}
-
+/* Pastille avec popover (au survol / focus) */
 .nav.has-popover {
   position: relative;
 }
 
-/* Popover (fiche détaillée au survol) */
+/* Popover : fiche détaillée */
 .popover {
   position: absolute;
   z-index: 20;
@@ -142,21 +110,17 @@ h3 {
   min-width: 260px;
   max-width: 360px;
   background: #ffffff;
-  color: #1f2933;           /* texte sombre */
   border: 1px solid #cbd5e1;
   border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
   padding: 10px 12px;
   display: none;
+  color: #1f2933;     /* texte foncé lisible dans la fiche */
 }
 
 .nav.has-popover:hover .popover,
 .nav.has-popover:focus-within .popover {
   display: block;
-}
-
-.popover a {
-  color: #1d4ed8;           /* bleu lisible pour les liens dans la fiche */
 }
 
 .popover h4 {
@@ -178,6 +142,15 @@ h3 {
   margin: 0 0 6px 4px;
 }
 
+.popover .desc {
+  margin-top: 6px;
+  max-height: 160px;
+  overflow: auto;
+  line-height: 1.35;
+  color: #111827;
+  font-size: 12px;
+}
+
 .popover .muted {
   color: #64748b;
   font-size: 12px;
@@ -185,67 +158,73 @@ h3 {
   display: block;
 }
 
-.popover .desc {
-  margin-top: 6px;
-  max-height: 160px;
-  overflow: auto;
-  line-height: 1.35;
-  color: #334155;
-  font-size: 12px;
-  white-space: normal;
+/* Liens à l’intérieur du popover (ex. « Cliquer pour s’inscrire ») */
+.popover a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+.popover a:hover {
+  text-decoration: underline;
 }
 
-.popover .cta-inscription {
-  display:inline-block;
-  margin-top:4px;
-  font-weight:600;
-  color:#2563eb;          /* bleu lien */
-  text-decoration:none;
-}
+/************************************************************
+ * 5) Vue vignettes (cartes par mois)
+ ************************************************************/
 
-.popover .cta-inscription:hover {
-  text-decoration:underline;
-}
-
-/* ============================
-   6. Vignettes par mois
-   ============================ */
-
+/* Section de mois : même bandeau que le calendrier (cf. plus haut) */
 .mois-section {
   margin: 18px 0 28px;
 }
 
+.mois-section > h3 {
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Grille de vignettes */
 .mois-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  margin-top: 10px;
 }
 
+/* Carte pour une navigation */
 .nav-card {
-  width: 230px;
+  width: 240px;
   min-height: 120px;
-  border-radius: 10px;
-  padding: 10px;
-  background: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.06);
+  border-radius: 10px;
+  padding: 8px 10px 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
   font-size: 13px;
 }
 
+/* Bandeau bateau dans la vignette (la couleur vient des classes bateau-*) */
 .nav-card .boat {
   font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
+.nav-card .boat a {
+  text-decoration: none;
+}
+
+/* Dates et description dans la carte */
 .nav-card .dates {
   font-size: 12px;
   color: #475569;
-  margin-top: 2px;
 }
 
 .nav-card .desc {
-  margin-top: 6px;
+  margin-top: 4px;
   font-size: 12px;
-  color: #334155;
+  color: #111827;
 }
 
 .nav-card .cta {
@@ -253,98 +232,44 @@ h3 {
   font-size: 12px;
 }
 
-.nav-card .cta a {
-  text-decoration: none;
-}
+/************************************************************
+ * 6) Couleurs par bateau (définies UNE seule fois)
+ *    – utilisées à la fois pour les pastilles du calendrier (.nav)
+ *      et pour les bandeaux des vignettes (.nav-card .boat)
+ ************************************************************/
 
-/* Couleurs de bordure des vignettes par bateau (réutilisation cohérente) 
-.nav-card.bateau-joshua {
-  border-top: 4px solid #dc2626;
-}
-
-.nav-card.bateau-damien {
-  border-top: 4px solid #1d4ed8;
-}
-
-.nav-card.bateau-autre {
-  border-top: 4px solid #64748b;
-}*/
-
-/* ————————————————————————————————
-   RÉPARATION COULEURS + LISIBILITÉ TEXTE
-   ———————————————————————————————— */
-
-/* 1) Texte blanc seulement dans la pastille, pas dans le popover */
+/* Joshua : fond rouge assez vif + texte blanc */
 .nav.bateau-joshua,
+.nav-card.bateau-joshua .boat {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.nav.bateau-joshua a,
+.nav-card.bateau-joshua .boat a {
+  color: #ffffff;
+}
+
+/* Damien : fond bleu clair + texte foncé */
 .nav.bateau-damien,
-.nav.bateau-autre {
-  color: #ffffff;         /* texte de la pastille */
-}
-
-/* 2) Remettre le texte NORMAL dans le popover */
-.popover,
-.popover * {
-  color: #334155 !important;  /* lisible bleu-gris */
-}
-
-/* 3) Fond du popover */
-.popover {
-  background: #ffffff !important;
-}
-
-/* 4) Bordure/ombre popover (plus propre) */
-.popover {
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0,0,0,.12);
-}
-
-/* 5) Pastilles par bateau (consolidation une seule fois) 
-.nav.bateau-joshua      { background-color: #ff3131; }
-.nav.bateau-damien      { background-color: #c7dff7; }
-.nav.bateau-autre       { background-color: #94a3b8; }
-*/
-/* 6) Rétablir les couleurs de fond du calendrier */
-.cal-cal th {
-  background-color: #fef9c3;   /* jaune pâle */
-}
-
-.cal-cal td {
-  background-color: #fff;      /* blanc */
-}
-/* ===================================================================
- * 5) Pastilles calendrier par bateau (couleurs + contraste texte)
- * ==================================================================*/
-
-/* Style de base de la pastille */
-.nav {
-  display: inline-block;
-  margin: 2px 0;
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-size: 13px;
-  font-weight: 600;
-  background-color: #e5e7eb;   /* gris clair par défaut */
-  color: #111827;              /* texte sombre par défaut */
-}
-
-/* Le texte cliquable dans la pastille */
-.nav-label {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Bateaux → couleurs de fond (une seule fois ici) */
-.nav.bateau-joshua  { background-color: #e52321; }  /* rouge vif */
-.nav.bateau-damien  { background-color: #5671b6; }  /* bleu clair */
-.nav.bateau-autre   { background-color: #94a3b8; }  /* gris bleuté */
-
-/* Contraste texte : 
-   - Rouge (Joshua) → texte blanc
-   - Les autres gardent le texte sombre par défaut       */
-.nav.bateau-joshua > .nav-label { 
+.nav-card.bateau-damien .boat {
+  background-color: #5671b6;
   color: #ffffff;
 }
-.nav.bateau-damien > .nav-label { 
-  color: #ffffff;
+
+.nav.bateau-damien a,
+.nav-card.bateau-damien .boat a {
+  color: #111827;
+}
+
+/* Autres bateaux : gris bleuté + texte foncé */
+.nav.bateau-autre,
+.nav-card.bateau-autre .boat {
+  background-color: #94a3b8;
+  color: #111827;
+}
+
+.nav.bateau-autre a,
+.nav-card.bateau-autre .boat a {
+  color: #111827;
 }

@@ -259,7 +259,7 @@ h2 {
 
 .nav.bateau-damien a,
 .nav-card.bateau-damien .boat a {
-  color: #111827;
+  color: #ffffff;
 }
 
 /* Autres bateaux : gris bleuté + texte foncé */
@@ -272,4 +272,10 @@ h2 {
 .nav.bateau-autre a,
 .nav-card.bateau-autre .boat a {
   color: #111827;
+}
+/* Toujours lisible, quel que soit le bateau */
+.cta-inscription {
+  color: #1e3a8a !important;  /* bleu foncé lisible */
+  font-weight: 600;
+  text-decoration: underline;
 }

@@ -156,23 +156,15 @@ a:hover {
   padding : 5px;
 }
 .nav-card.bateau-joshua .boat{
-  background-color:#f32929;
+  background-color:#ff3131;
 }
 .nav-card.bateau-damien .boat{
-  background-color:#9edef1;
+  background-color:#c7dff7;
 }
 .nav-card .cta {
   margin-top: 6px;
   font-size: 12px;
 }
-
-.nav-card .cta a {
-  background-color:#F0F0F0;
-  padding : 5px;
-  display: grid;
-  place-items: center;
-}
-
 /* Petit code couleur par bateau sur la bordure haute 
 .nav-card.bateau-joshua {
   border-top: 4px solid #7aa6c7;
@@ -184,6 +176,24 @@ a:hover {
   border-top: 4px solid #94a3b8;
 }
 */
+.nav-card .cta a {
+  background-color:#F0F0F0;
+  padding : 5px;
+  display: grid;
+  place-items: center;
+}
+/* Couleurs des pastilles calendrier par bateau */
+.nav.bateau-joshua {
+  background-color: #ff3131;
+}
+.nav.bateau-damien {
+  background-color: #c7dff7;
+}
+.nav.bateau-autre {
+  background-color: #94a3b8;  /* même teinte “autre” que les vignettes */
+}
+
+
 .liste-nav {
   background-color: #fcc00c;
   border:3px solid black;

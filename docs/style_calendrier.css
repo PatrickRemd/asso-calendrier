@@ -1,93 +1,185 @@
+/* ===========================
+   Variables de couleurs
+   =========================== */
+:root {
+  --couleur-fond-page: rgb(86,113,182);
+  --couleur-bateau-joshua: #ff3131;
+  --couleur-bateau-damien: #c7dff7;
+  --couleur-bateau-autre:  #94a3b8;
+  --texte-sur-fond-fonce:  #ffffff;
+  --texte-sur-fond-clair:  #000000;
+}
+
+/* ===========================
+   Base de page
+   =========================== */
+
 body {
-  font-family : "Antonio",sans-serif; }
-  background-color: rgb(86,113,182);
+  font-family: "Antonio", sans-serif;
+  background-color: var(--couleur-fond-page);
   margin: 20px;
 }
 
 h1, h2 {
   text-align: center;
-  <!--color: #004080;-->
-  color : white;
+  color: white;
 }
 
-table {
+/* ===========================
+   TABLEAU CALENDRIER
+   =========================== */
+
+.cal-cal {
   border-collapse: collapse;
   width: 100%;
+  margin-bottom: 30px;
   border: 3px solid black;
   background-color: #fcc00c;
 }
 
-th {
-  border: 1px solid rgb(86,113,182);
-  padding: 5px; text-align: left; 
-  vertical-align: top;
-  height: 30px; 
-  text-align: left;
-  font-size: 20px;
-
-}
-
-td {
+.cal-cal th,
+.cal-cal td {
   border: 1px solid rgb(86,113,182);
   padding: 5px;
-  text-align: left;
   vertical-align: top;
+}
+
+.cal-cal th {
+  height: 30px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.cal-cal td {
   height: 120px;
+}
+
+.cal-head th {
+  background: #f0f4ff;
 }
 
 .jour {
   width: 14.28%;
 }
 
+/* Pastille de navigation dans le calendrier */
 .nav {
   margin: 2px;
   padding: 4px;
   border-radius: 4px;
   font-size: 14px;
   font-weight: bold;
-  background-color: #ddd;
 }
 
-a {
+/* Couleurs des pastilles calendrier par bateau */
+.nav.bateau-joshua {
+  background-color: var(--couleur-bateau-joshua);
+  color: var(--texte-sur-fond-fonce);
+}
+.nav.bateau-damien {
+  background-color: var(--couleur-bateau-damien);
+  color: var(--texte-sur-fond-clair);
+}
+.nav.bateau-autre {
+  background-color: var(--couleur-bateau-autre);
+  color: var(--texte-sur-fond-clair);
+}
+
+/* Lien à l'intérieur des pastilles */
+.nav a {
   text-decoration: none;
-  color: black;
+  color: inherit;           /* même couleur que le texte de .nav */
 }
 
-a:hover {
+.nav a:hover {
   text-decoration: underline;
 }
-.cal-cal { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
-.cal-cal th { border: 1px solid #ccc; padding: 4px; vertical-align: top; height: 30px; }
-.cal-cal td { border: 1px solid #ccc; padding: 4px; vertical-align: top; height: 100px; }
-.cal-head th { background: #f0f4ff; }
-.nav { margin: 2px; padding: 3px; border-radius: 4px; font-size: 13px; font-weight: bold; }
-.menu-mois { text-align:center; margin: 12px 0 20px; line-height: 2.2; }
-.mois-link { display:inline-block; padding:6px 10px; border:1px solid #cbd5e1; border-radius:9999px; text-decoration:none; margin:4px 6px; }
-.mois-link:hover { background:#eef2ff; text-decoration:underline; }
 
-/* Popover sur les pastilles du calendrier */
-.cal-cal td { position: relative; }
-.nav.has-popover { position: relative; }
+/* ===========================
+   INDEX DES MOIS
+   =========================== */
+
+.menu-mois {
+  text-align:center;
+  margin: 12px 0 20px;
+  line-height: 2.2;
+}
+
+.mois-link {
+  display:inline-block;
+  padding:6px 10px;
+  border:1px solid #cbd5e1;
+  border-radius:9999px;
+  text-decoration:none;
+  margin:4px 6px;
+  background-color: #ffffff;
+  color: #0f172a;
+}
+
+.mois-link:hover {
+  background:#eef2ff;
+  text-decoration:underline;
+}
+
+/* ===========================
+   POPOVER SUR LE CALENDRIER
+   =========================== */
+
+/* Important : td doit être en position relative */
+.cal-cal td {
+  position: relative;
+}
+
+.nav.has-popover {
+  position: relative;
+}
 
 .popover {
   position: absolute;
   z-index: 20;
-  top: 28px; left: 0;
-  min-width: 260px; max-width: 360px;
-  background: #fff; border: 1px solid #cbd5e1; border-radius: 8px;
+  top: 28px;
+  left: 0;
+  min-width: 260px;
+  max-width: 360px;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   box-shadow: 0 8px 24px rgba(0,0,0,.12);
   padding: 10px 12px;
   display: none;
 }
 
 .nav.has-popover:hover .popover,
-.nav.has-popover:focus-within .popover { display: block; }
+.nav.has-popover:focus-within .popover {
+  display: block;
+}
 
-.popover h4 { margin: 0 0 6px; font-size: 14px; }
-.popover dl { margin:0; }
-.popover dt { font-weight: 600; display:inline; }
-.popover dd { display:inline; margin: 0 0 6px 4px; }
-.popover .muted { color:#64748b; font-size:12px; margin-top:6px; display:block; }
+.popover h4 {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.popover dl {
+  margin:0;
+}
+
+.popover dt {
+  font-weight: 600;
+  display:inline;
+}
+
+.popover dd {
+  display:inline;
+  margin: 0 0 6px 4px;
+}
+
+.popover .muted {
+  color:#64748b;
+  font-size:12px;
+  margin-top:6px;
+  display:block;
+}
+
 .popover .desc {
   margin-top: 6px;
   max-height: 160px;
@@ -97,7 +189,11 @@ a:hover {
   font-size: 12px;
   white-space: normal;
 }
-/* Section mensuelle */
+
+/* ===========================
+   VUE VIGNETTES PAR MOIS
+   =========================== */
+
 .mois-section {
   margin: 18px 0 28px;
 }
@@ -109,8 +205,8 @@ a:hover {
 /* Grille de vignettes par mois */
 .mois-grid {
   display: flex;
-  flex-wrap: wrap;          /* retour à la ligne automatique */
-  gap: 12px;                /* espace entre les cartes */
+  flex-wrap: wrap;
+  gap: 12px;
   align-items: stretch;
   background-color: #fcc00c;
   border:3px solid black;
@@ -132,12 +228,27 @@ a:hover {
   justify-content: space-between;
 }
 
+/* En-tête de carte: même code couleur que les pastilles */
 .nav-card .boat {
   font-weight: 700;
   margin-bottom: 2px;
   display: grid;
   place-items: center;
-  background-color: #94a3b8;
+  padding: 4px;
+}
+
+/* Couleurs par bateau (réutilise les variables) */
+.nav-card.bateau-joshua .boat {
+  background-color: var(--couleur-bateau-joshua);
+  color: var(--texte-sur-fond-fonce);
+}
+.nav-card.bateau-damien .boat {
+  background-color: var(--couleur-bateau-damien);
+  color: var(--texte-sur-fond-clair);
+}
+.nav-card.bateau-autre .boat {
+  background-color: var(--couleur-bateau-autre);
+  color: var(--texte-sur-fond-clair);
 }
 
 .nav-card .dates {
@@ -153,46 +264,26 @@ a:hover {
   overflow: auto;
   border-bottom: 1px solid black;
   border-top: 1px solid black;
-  padding : 5px;
+  padding: 5px;
 }
-.nav-card.bateau-joshua .boat{
-  background-color:#ff3131;
-}
-.nav-card.bateau-damien .boat{
-  background-color:#c7dff7;
-}
+
 .nav-card .cta {
   margin-top: 6px;
   font-size: 12px;
 }
-/* Petit code couleur par bateau sur la bordure haute 
-.nav-card.bateau-joshua {
-  border-top: 4px solid #7aa6c7;
-}
-.nav-card.bateau-damien {
-  border-top: 4px solid #b89ce6;
-}
-.nav-card.bateau-autre {
-  border-top: 4px solid #94a3b8;
-}
-*/
+
 .nav-card .cta a {
-  background-color:#F0F0F0;
-  padding : 5px;
   display: grid;
   place-items: center;
-}
-/* Couleurs des pastilles calendrier par bateau */
-.nav.bateau-joshua {
-  background-color: #ff3131;
-}
-.nav.bateau-damien {
-  background-color: #c7dff7;
-}
-.nav.bateau-autre {
-  background-color: #94a3b8;  /* même teinte “autre” que les vignettes */
+  background-color:#F0F0F0;
+  padding: 5px;
+  text-decoration:none;
+  color:#111827;
 }
 
+/* ===========================
+   LISTE COMPACTE
+   =========================== */
 
 .liste-nav {
   background-color: #fcc00c;
@@ -200,9 +291,11 @@ a:hover {
   padding: 5px;
   list-style-position: inside;
 }
+
 .liste-nav li {
   line-height: 1.5;
 }
+
 .liste-nav .date {
   font-weight: bold;
 }

@@ -1,54 +1,21 @@
-/* ============================================================
-   STYLE GLOBAL
-   ============================================================ */
+/************************************************************
+ * 1) Styles généraux
+ ************************************************************/
+
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  color: #1e293b;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  margin: 16px;
+  color: #111827;
 }
 
 h2 {
-  text-align: center;
-  margin-bottom: 25px;
+  margin: 0 0 16px;
 }
 
-h3 {
-  background: #fcefb4;
-  padding: 8px 12px;
-  margin-top: 40px;
-  border-radius: 6px;
-}
+/************************************************************
+ * 2) Calendrier mensuel (table .cal-cal)
+ ************************************************************/
 
-/* Bandeau mois version vignettes : largeur totale */
-.month-header {
-  background: #fcefb4;
-  padding: 10px 15px;
-  font-size: 20px;
-  font-weight: bold;
-  width: 100%;
-  margin: 40px 0 20px;
-}
-
-/* ============================================================
-   COULEURS DES BATEAUX (UNE SEULE SECTION)
-   ============================================================ */
-.bateau-joshua { background-color: #e52321; color: #ffffff !important; }
-.bateau-damien { background-color: #5671b6; color: #ffffff !important; }
-.bateau-autre  { background-color: #94a3b8; color: #ffffff !important; }
-
-/* Liens contextuels selon bateau */
-.bateau-joshua a,
-.bateau-autre a {
-  color: #ffffff !important;
-}
-
-.bateau-damien a {
-  color: #003255 !important;
-}
-
-/* ============================================================
-   CALENDRIER (version grille)
-   ============================================================ */
 .cal-cal {
   border-collapse: collapse;
   width: 100%;
@@ -57,51 +24,98 @@ h3 {
 
 .cal-cal th,
 .cal-cal td {
-  border: 1px solid #ccc;
+  border: 1px solid #e5e7eb;
   padding: 4px;
   vertical-align: top;
   height: 100px;
+  font-size: 13px;
+}
+
+/* En-tête de jours + bandeaux de mois (couleur commune) */
+.cal-head th,
+.mois-section > h3 {
+  background-color: #facc15; /* jaune doré */
+  color: #111827;
+  text-align: center;
+  font-weight: 600;
 }
 
 .cal-head th {
-  background: #fcefb4;
-  font-weight: bold;
+  border-bottom-width: 2px;
 }
 
 .jour {
   width: 14.28%;
 }
 
-.nav {
-  padding: 4px 6px;
-  border-radius: 6px;
-  margin: 3px 0;
+/************************************************************
+ * 3) Index de mois (utilisé par calendrier et listings)
+ ************************************************************/
+
+.menu-mois {
+  text-align: center;
+  margin: 12px 0 20px;
+  line-height: 2.2;
+}
+
+.mois-link {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
+  text-decoration: none;
+  margin: 4px 6px;
   font-size: 13px;
-  font-weight: bold;
+  color: #1e293b;
+  background-color: #f9fafb;
+}
+
+.mois-link:hover {
+  background: #eef2ff;
+  text-decoration: underline;
+}
+
+/************************************************************
+ * 4) Popover sur les pastilles du calendrier
+ ************************************************************/
+
+/* La cellule sert de référence à la position absolue */
+.cal-cal td { position: relative; }
+
+/* Conteneur de la pastille (calendrier) */
+.nav {
+  margin: 2px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
   display: inline-block;
 }
 
-/* ============================================================
-   POPOVER (calendrier)
-   ============================================================ */
+.nav a {
+  text-decoration: none;
+}
+
+/* Pastille avec popover (au survol / focus) */
 .nav.has-popover {
   position: relative;
 }
 
+/* Popover : fiche détaillée */
 .popover {
   position: absolute;
-  top: 30px;
+  z-index: 20;
+  top: 28px;
   left: 0;
-  background: #ffffff;
-  border: 1px solid #cbd5e1;
-  padding: 12px;
   min-width: 260px;
   max-width: 360px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  padding: 10px 12px;
   display: none;
-  z-index: 20;
-  color: #1e293b;
+  color: #1f2933;     /* texte foncé lisible dans la fiche */
 }
 
 .nav.has-popover:hover .popover,
@@ -111,67 +125,151 @@ h3 {
 
 .popover h4 {
   margin: 0 0 6px;
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.popover dl {
+  margin: 0;
 }
 
 .popover dt {
   font-weight: 600;
+  display: inline;
 }
 
 .popover dd {
-  margin-bottom: 6px;
+  display: inline;
+  margin: 0 0 6px 4px;
 }
 
 .popover .desc {
-  margin-top: 8px;
-  font-size: 13px;
+  margin-top: 6px;
+  max-height: 160px;
+  overflow: auto;
   line-height: 1.35;
+  color: #111827;
+  font-size: 12px;
 }
 
-.popover .cta-inscription {
-  display: inline-block;
-  margin-top: 8px;
-  font-weight: bold;
+.popover .muted {
+  color: #64748b;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Liens à l’intérieur du popover (ex. « Cliquer pour s’inscrire ») */
+.popover a {
+  color: #1d4ed8;
+  text-decoration: none;
+}
+.popover a:hover {
   text-decoration: underline;
 }
 
-/* ============================================================
-   VIGNETTES (version cartes)
-   ============================================================ */
+/************************************************************
+ * 5) Vue vignettes (cartes par mois)
+ ************************************************************/
 
-.navcards-container {
+/* Section de mois : même bandeau que le calendrier (cf. plus haut) */
+.mois-section {
+  margin: 18px 0 28px;
+}
+
+.mois-section > h3 {
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Grille de vignettes */
+.mois-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 13px;
+  gap: 12px;
+  margin-top: 10px;
 }
 
+/* Carte pour une navigation */
 .nav-card {
-  width: 280px;
+  width: 240px;
+  min-height: 120px;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  overflow: hidden;
-  background: white;
+  padding: 8px 10px 10px;
+  background: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.04);
+  font-size: 13px;
 }
 
-.nav-card .header-title {
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
+/* Bandeau bateau dans la vignette (la couleur vient des classes bateau-*) */
+.nav-card .boat {
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 4px;
 }
 
-.nav-card .boat-name {
-  padding: 8px 10px;
-  font-size: 14px;
-  opacity: 0.9;
+.nav-card .boat a {
+  text-decoration: none;
 }
 
-.nav-card .content {
-  padding: 10px;
-  line-height: 1.35;
+/* Dates et description dans la carte */
+.nav-card .dates {
+  font-size: 12px;
+  color: #475569;
+}
+
+.nav-card .desc {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #111827;
 }
 
 .nav-card .cta {
-  margin-top: 8px;
-  font-weight: bold;
-  text-decoration: underline;
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+/************************************************************
+ * 6) Couleurs par bateau (définies UNE seule fois)
+ *    – utilisées à la fois pour les pastilles du calendrier (.nav)
+ *      et pour les bandeaux des vignettes (.nav-card .boat)
+ ************************************************************/
+
+/* Joshua : fond rouge assez vif + texte blanc */
+.nav.bateau-joshua,
+.nav-card.bateau-joshua .boat {
+  background-color: #dc2626;
+  color: #ffffff;
+}
+
+.nav.bateau-joshua a,
+.nav-card.bateau-joshua .boat a {
+  color: #111827;
+}
+
+/* Damien : fond bleu clair + texte foncé */
+.nav.bateau-damien,
+.nav-card.bateau-damien .boat {
+  background-color: #5671b6;
+  color: #ffffff;
+}
+
+.nav.bateau-damien a,
+.nav-card.bateau-damien .boat a {
+  color: #111827;
+}
+
+/* Autres bateaux : gris bleuté + texte foncé */
+.nav.bateau-autre,
+.nav-card.bateau-autre .boat {
+  background-color: #94a3b8;
+  color: #111827;
+}
+
+.nav.bateau-autre a,
+.nav-card.bateau-autre .boat a {
+  color: #111827;
 }

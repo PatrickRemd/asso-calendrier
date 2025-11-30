@@ -178,8 +178,9 @@ h2 {
 
 .mois-section > h3 {
   padding: 6px 10px;
-  border-radius: 8px;
-  display: inline-block;
+  border-radius: 6px;
+  display: block;
+  margin: 0 0 8px;
 }
 
 /* Grille de vignettes */
@@ -273,3 +274,4 @@ h2 {
 .nav-card.bateau-autre .boat a {
   color: #111827;
 }
+

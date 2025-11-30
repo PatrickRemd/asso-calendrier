@@ -84,12 +84,14 @@ h2 {
 
 /* Conteneur de la pastille (calendrier) */
 .nav {
-  margin: 2px;
+  display: block;          /* AU LIEU DE inline-block */
+  width: 100%;
+  margin: 2px 0;
   padding: 3px 6px;
   border-radius: 4px;
   font-size: 13px;
   font-weight: 600;
-  display: inline-block;
+  box-sizing: border-box;
 }
 
 .nav a {
@@ -167,6 +169,42 @@ h2 {
   text-decoration: underline;
 }
 
+/* Le lien d'inscription dans le popover doit rester bleu lisible,
+   même si la pastille est rouge/bleue, etc. */
+.nav.has-popover .popover .cta-inscription {
+  color: #2563eb !important;
+}
+
+/* Garder le popover ouvert tant que la souris est dans la cellule */
+.cal-cal td:hover .popover {
+  display: block;
+}
+
+/* Éviter le trou entre la pastille et la fiche */
+.nav.has-popover {
+  padding-bottom: 20px;       /* ajuste si besoin */
+}
+
+.popover {
+  top: 22px;                  /* un peu plus près de la pastille */
+}
+
+
+/* Même hauteur visuelle pour les titres de mois (vignettes) et la ligne des jours (calendrier)*/
+.cal-head th {
+  padding: 8px 10px;
+  height: 32px;
+}
+
+.mois-section > h3 {
+  padding: 8px 10px;
+  height: 32px;
+  display: block;
+  width: 100%;         /* bandeau sur toute la largeur */
+  box-sizing: border-box;
+}
+
+
 /************************************************************
  * 5) Vue vignettes (cartes par mois)
  ************************************************************/
@@ -177,11 +215,17 @@ h2 {
 }
 
 .mois-section > h3 {
-  padding: 6px 10px;
-  border-radius: 6px;
+  padding: 8px 10px;
+  height: 32px;
   display: block;
-  margin: 0 0 8px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #facc15;  /* ou la même couleur que tes th */
+  color: #111827;
+  border-radius: 8px;
+  margin: 0 0 8px 0;
 }
+
 
 /* Grille de vignettes */
 .mois-grid {
@@ -206,9 +250,9 @@ h2 {
 /* Bandeau bateau dans la vignette (la couleur vient des classes bateau-*) */
 .nav-card .boat {
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 9999px;
-  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: block;
   margin-bottom: 4px;
 }
 
@@ -274,5 +318,4 @@ h2 {
 .nav-card.bateau-autre .boat a {
   color: #111827;
 }
-
 

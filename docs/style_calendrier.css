@@ -242,13 +242,13 @@ h2 {
 /* Joshua : fond rouge assez vif + texte blanc */
 .nav.bateau-joshua,
 .nav-card.bateau-joshua .boat {
-  background-color: #dc2626;
+  background-color: #e52321;
   color: #ffffff;
 }
 
 .nav.bateau-joshua a,
 .nav-card.bateau-joshua .boat a {
-  color: #111827;
+  color: #ffffff;
 }
 
 /* Damien : fond bleu clair + texte foncé */
@@ -260,7 +260,7 @@ h2 {
 
 .nav.bateau-damien a,
 .nav-card.bateau-damien .boat a {
-  color: #111827;
+  color: #ffffff;
 }
 
 /* Autres bateaux : gris bleuté + texte foncé */
@@ -274,4 +274,5 @@ h2 {
 .nav-card.bateau-autre .boat a {
   color: #111827;
 }
+
 

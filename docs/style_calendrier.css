@@ -120,6 +120,11 @@ h2 {
   color: #1f2933;     /* texte foncé lisible dans la fiche */
 }
 
+.popover-left {
+  left: auto;
+  right: 0;
+}
+
 .nav.has-popover:hover .popover,
 .nav.has-popover:focus-within .popover {
   display: block;

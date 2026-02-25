@@ -80,7 +80,7 @@ h2 {
  ************************************************************/
 
 /* La cellule sert de référence à la position absolue */
-.cal-cal td { position: relative; }
+.cal-cal td { position: relative;  overflow: visible; }
 
 /* Conteneur de la pastille (calendrier) */
 .nav {
@@ -92,6 +92,9 @@ h2 {
   font-size: 13px;
   font-weight: 600;
   box-sizing: border-box;
+  
+  position: relative;
+  z-index: 1;
 }
 
 .nav a {
@@ -106,7 +109,7 @@ h2 {
 /* Popover : fiche détaillée */
 .popover {
   position: absolute;
-  z-index: 20;
+  z-index: 1001;
   top: 28px;
   left: 0;
   min-width: 260px;
@@ -128,6 +131,11 @@ h2 {
 .nav.has-popover:hover .popover,
 .nav.has-popover:focus-within .popover {
   display: block;
+}
+
+.nav.has-popover:hover,
+.nav.has-popover:focus-within {
+  z-index: 1000;
 }
 
 .popover h4 {
@@ -180,10 +188,10 @@ h2 {
   color: #2563eb !important;
 }
 
-/* Garder le popover ouvert tant que la souris est dans la cellule */
+/* Garder le popover ouvert tant que la souris est dans la cellule (supprimé pour concentrer le popover sur la pastille nav plutôt que sur la case calendrier)
 .cal-cal td:hover .popover {
   display: block;
-}
+}*/
 
 /* Éviter le trou entre la pastille et la fiche */
 .nav.has-popover {

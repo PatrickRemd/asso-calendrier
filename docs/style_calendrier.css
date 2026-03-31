@@ -216,7 +216,47 @@ h2 {
   width: 100%;         /* bandeau sur toute la largeur */
   box-sizing: border-box;
 }
+/* ============================================================
+ * 4bis) Badge "COMPLET" (popover + vignettes)
+ * ============================================================ */
 
+/* Badge simple (rouge + blanc gras) */
+.badge-complet {
+  display: inline-block;
+  font-weight: 800;
+  color: #ffffff;
+  background: #b91c1c;      /* rouge */
+  padding: 3px 8px;
+  border-radius: 999px;     /* pill */
+  font-size: 12px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+/* Popover complet : réserve un coin pour le ruban */
+.popover.complet {
+  position: absolute; /* déjà le cas, mais on le rappelle */
+  overflow: hidden;   /* pour couper le ruban */
+  padding-top: 18px;  /* laisse un peu d'air sous le ruban */
+}
+
+/* Ruban diagonal (option) : uniquement si .popover.complet */
+.popover.complet .ruban-complet {
+  position: absolute;
+  top: 10px;
+  right: -44px;               /* décale pour l'angle */
+  transform: rotate(35deg);
+  width: 160px;
+  text-align: center;
+  font-weight: 900;
+  color: #ffffff;
+  background: #b91c1c;
+  padding: 4px 0;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+}
 
 /************************************************************
  * 5) Vue vignettes (cartes par mois)
@@ -288,6 +328,35 @@ h2 {
 .nav-card .cta {
   margin-top: 6px;
   font-size: 12px;
+}
+
+/* Vignette complète : badge en haut à droite */
+.nav-card.complet {
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-card.complet .badge-complet {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+/* Ruban diagonal dans la vignette (option) */
+.nav-card.complet .ruban-complet {
+  position: absolute;
+  top: 14px;
+  right: -54px;
+  transform: rotate(35deg);
+  width: 190px;
+  text-align: center;
+  font-weight: 900;
+  color: #ffffff;
+  background: #b91c1c;
+  padding: 5px 0;
+  font-size: 12px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
 }
 
 /************************************************************

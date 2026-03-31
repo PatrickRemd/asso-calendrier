@@ -110,7 +110,7 @@ h2 {
 .popover {
   position: absolute;
   z-index: 1001;
-  top: 28px;
+  top: 22px;
   left: 0;
   min-width: 260px;
   max-width: 360px;
@@ -196,10 +196,6 @@ h2 {
 /* Éviter le trou entre la pastille et la fiche */
 .nav.has-popover {
   padding-bottom: 20px;       /* ajuste si besoin */
-}
-
-.popover {
-  top: 22px;                  /* un peu plus près de la pastille */
 }
 
 

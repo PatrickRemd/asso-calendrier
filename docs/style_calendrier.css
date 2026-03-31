@@ -358,6 +358,11 @@ h2 {
   text-transform: uppercase;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
 }
+.cta-complet {
+  font-weight: 800;
+  color: #b91c1c;
+  text-transform: uppercase;
+}
 /* Le ruban ne doit pas capturer les clics */
 .ruban-complet {
   pointer-events: none;

@@ -253,6 +253,10 @@ h2 {
   text-transform: uppercase;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
 }
+/* Le ruban ne doit pas capturer les clics */
+.ruban-complet {
+  pointer-events: none;
+}
 
 /************************************************************
  * 5) Vue vignettes (cartes par mois)
@@ -353,6 +357,10 @@ h2 {
   letter-spacing: 0.6px;
   text-transform: uppercase;
   box-shadow: 0 6px 16px rgba(0, 0, 0, .18);
+}
+/* Le ruban ne doit pas capturer les clics */
+.ruban-complet {
+  pointer-events: none;
 }
 
 /************************************************************
